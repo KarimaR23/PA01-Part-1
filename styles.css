@@ -1,0 +1,21 @@
+body {
+    font-family: 'Segoe UI', Times New Roman, Georgia, Arial, sans-serif;
+    line-height: 2px;
+    margin: 20px; 
+}
+
+h1, h2 {
+    color: black;
+}
+
+.highlight-text {
+    color: aquablue;
+    font-weight: bold;
+}
+
+#special-feature {
+    background-color: #0745f0
+    padding: 15px; 
+    border-radius: 8px;
+    border: 2px solid #740dd4;
+}
