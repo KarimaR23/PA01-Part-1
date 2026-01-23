@@ -3,3 +3,12 @@ body {
     line-height: 2px;
     margin: 20px; 
 }
+
+h1, h2 {
+    color: black;
+}
+
+.highlight-text {
+    color: aquablue;
+    font-weight: bold;
+}
