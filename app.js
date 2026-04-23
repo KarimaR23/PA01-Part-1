@@ -41,11 +41,7 @@ renderStaticList();
 // VALIDATION (CONTROL FLOW)
 
 function validateEmail(email) {
-    if (email.includes("@") && email.length > 5) {
-        return true;
-    } else {
-        return false;
-    }
+    return !!(email.includes("@") && email.length > 5);
 }
 
 // FORM EVENT
@@ -84,3 +80,33 @@ function filterData(data) {
     return data.filter(user => user.name);
 }
 
+// FETCH EVENT
+// ==========================
+fetchBtn.addEventListener("click", async () => {
+    results.textContent = "Loading...";
+
+    try {
+        const response = await fetch("https://jsonplaceholder.typicode.com/users");
+        const data = await response.json();
+
+        fetchedData = filterData(data);
+
+        if (fetchedData.length === 0) {
+            results.textContent = "No results found.";
+            return;
+        }
+
+        renderList(fetchedData);
+
+    } catch (error) {
+        handleError(error);
+    }
+});
+
+// ==========================
+// SORT EVENT
+// ==========================
+sortBtn.addEventListener("click", () => {
+    fetchedData.sort((a, b) => a.name.localeCompare(b.name));
+    renderList(fetchedData);
+});
