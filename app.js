@@ -24,3 +24,27 @@ const fetchBtn = document.getElementById("fetchBtn");
 const sortBtn = document.getElementById("sortBtn");
 
 let fetchedData = [];
+
+function renderStaticList() {
+    itemList.innerHTML = "";
+
+    for (let i = 0; i < hobbies.length; i++) {
+        const li = document.createElement("li");
+        li.textContent = hobbies[i];
+        itemList.appendChild(li);
+    }
+}
+
+renderStaticList();
+
+
+// VALIDATION (CONTROL FLOW)
+
+function validateEmail(email) {
+    if (email.includes("@") && email.length > 5) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
