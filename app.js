@@ -48,3 +48,39 @@ function validateEmail(email) {
     }
 }
 
+// FORM EVENT
+
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+
+    if (validateEmail(email)) {
+        statusDiv.textContent = "✅ Valid email!";
+    } else {
+        statusDiv.textContent = "❌ Invalid email!";
+    }
+});
+
+
+// FETCH FUNCTIONS
+
+function renderList(data) {
+    results.innerHTML = "";
+
+    data.slice(0, 10).forEach(item => {
+        const div = document.createElement("div");
+        div.textContent = item.name;
+        results.appendChild(div);
+    });
+}
+
+function handleError(error) {
+    results.textContent = "Error loading data.";
+    console.error(error);
+}
+
+function filterData(data) {
+    return data.filter(user => user.name);
+}
+
